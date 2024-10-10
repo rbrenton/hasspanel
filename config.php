@@ -2,7 +2,6 @@
 require_once('icons.php');
 require_once('util.php');
 
-
 // panel
 $device = array(
   'node' => 'indicator1',
@@ -17,10 +16,12 @@ map_to_rows([
   'default' => '0',
   'on_value' => 'On',
   'off_value' => 'Off',
-  'entity' => 'switch.%2%',
+  'entity' => '%2%',
 ], array(
-  [ 'coach-lamp'       , 'Front Porch Light', 'togglelinc_an_off_46_e4_15'  ],
-  [ 'outdoor-lamp'     , 'Driveway Light'   , 'togglelinc_an_off_46_e5_13'  ],
+  [ 'outdoor-lamp'     , 'Driveway'  , 'switch.togglelinc_an_off_46_e5_13'  ],
+  [ 'coach-lamp'       , 'Front Porch', 'switch.togglelinc_an_off_46_e4_15' ],
+  [ 'outdoor-lamp'     , 'Lamp Post' , 'switch.togglelinc_an_off_46_e5_7e'  ],
+  [ 'ceiling-light'    , 'Garage'    , 'light.garage'                       ],
 ));
 
 // sensors
@@ -31,10 +32,11 @@ map_to_rows([
   'default' => 'n/a',
   'entity' => 'sensor.%2%',
 ], array(
-  [ 'garage-variant'   , 'Garage Door'      , 'garage_door'                 ],
-  [ 'lightning-bolt'   , 'Tesla Charger'    , 'tesla_wall_connector_status' ],
-  [ 'trash-can-outline', 'Trash Service'    , 'garbage_pickup_desc'         ],
-  [ 'recycle-variant'  , 'Recycling Service', 'recycling_pickup_desc'       ],
+  [ 'garage-variant'   , 'Garage Door'      , 'sensor.garage_door'                 ],
+  [ 'lightning-bolt'   , 'Tesla Charger'    , 'sensor.tesla_wall_connector_status' ],
+  [ 'trash-can-outline', 'Trash Service'    , 'sensor.garbage_pickup_desc'         ],
+  [ 'recycle-variant'  , 'Recycling Service', 'sensor.recycling_pickup_desc'       ],
+  [ 'door-closed', 'Garage Interior Door', 'binary_sensor.alarm_panel_pro_f20444_zone_3' ],
 ));
 
 /*
