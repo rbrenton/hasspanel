@@ -7,6 +7,7 @@ $device = array(
 $rows = array();
 
 require_once('icons.php');
+require_once('util.php');
 require_once('config.php');
 
 $viewport_width = 480;
