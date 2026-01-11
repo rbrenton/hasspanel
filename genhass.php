@@ -1,4 +1,12 @@
 <?php
+// Show help if requested
+if (in_array('--help', $argv ?? []) || in_array('-h', $argv ?? [])) {
+  echo "Usage: php genhass.php > openhasp.yaml\n\n";
+  echo "Generate Home Assistant YAML configuration from config.php\n";
+  echo "Output should be added to your Home Assistant configuration.\n";
+  exit(0);
+}
+
 require_once('common.php');
 
 printf('%s:', $device['node']);
