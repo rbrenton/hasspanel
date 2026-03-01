@@ -30,7 +30,7 @@ map_to_rows([
   'label' => '%1%',
   'type' => 'text',
   'default' => 'n/a',
-  'entity' => 'sensor.%2%',
+  'entity' => '%2%',
 ], array(
   [ 'garage-variant'   , 'Garage Door'      , 'sensor.garage_door'                 ],
   [ 'lightning-bolt'   , 'Tesla Charger'    , 'sensor.tesla_wall_connector_status' ],

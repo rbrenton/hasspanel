@@ -1,0 +1,19 @@
+# Generated output files
+pages.jsonl
+openhasp.yaml
+*.jsonl
+*.yaml
+
+# User configuration (contains personal entity IDs)
+config.php
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

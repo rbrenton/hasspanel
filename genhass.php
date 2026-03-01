@@ -1,4 +1,12 @@
 <?php
+// Show help if requested
+if (in_array('--help', $argv ?? []) || in_array('-h', $argv ?? [])) {
+  echo "Usage: php genhass.php > openhasp.yaml\n\n";
+  echo "Generate Home Assistant YAML configuration from config.php\n";
+  echo "Output should be added to your Home Assistant configuration.\n";
+  exit(0);
+}
+
 require_once('common.php');
 
 printf('%s:', $device['node']);
@@ -53,37 +61,37 @@ foreach ($hass_objs as $arr) {
   default:
   }
 
-  # obj
+  // obj
   printf('    - obj: "%s" # %s', $arr['field_id'], $arr['label']);
   echo "\n";
 
-  # properties
+  // properties
   if (isset($arr['properties'])) {
-	printf('      properties:');
+    printf('      properties:');
     echo "\n";
 
-	foreach ($arr['properties'] as $key => $value) {
-	  printf("        %s: %s", $key, $value);
+    foreach ($arr['properties'] as $key => $value) {
+      printf("        %s: %s", $key, $value);
       echo "\n";
-	}
+    }
   }
 
-  # event
+  // event
   if (isset($arr['event'])) {
-	printf('      event:');
+    printf('      event:');
     echo "\n";
 
-	foreach ($arr['event'] as $key => $values) {
-	  printf('        "%s":', $key);
+    foreach ($arr['event'] as $key => $values) {
+      printf('        "%s":', $key);
       echo "\n";
 
       $dash = '-';
-	  foreach($values as $k => $v) {
-		printf('          %s %s: %s', $dash, $k, $v);
+      foreach($values as $k => $v) {
+        printf('          %s %s: %s', $dash, $k, $v);
         echo "\n";
 
         $dash = ' ';
-	  }
-	}
+      }
+    }
   }
 }
